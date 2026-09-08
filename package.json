@@ -1,0 +1,10 @@
+{
+  "name": "gk-academy-platform",
+  "private": true,
+  "workspaces": ["apps/*"],
+  "scripts": {
+    "dev": "echo 'Run npm run dev -w apps/api and npm run dev -w apps/web in separate terminals'",
+    "build": "npm run build -w apps/api && npm run build -w apps/web"
+  },
+  "engines": { "node": ">=22" }
+}

@@ -1,0 +1,1 @@
+import{Controller,Get,Req,UseGuards}from'@nestjs/common';import{JwtAuthGuard}from'../auth/jwt-auth.guard';import{SubscriptionsService}from'./subscriptions.service';@Controller('subscriptions')@UseGuards(JwtAuthGuard)export class SubscriptionsController{constructor(private subs:SubscriptionsService){}@Get('me')my(@Req()req:any){return this.subs.my(req.user.id);}}
