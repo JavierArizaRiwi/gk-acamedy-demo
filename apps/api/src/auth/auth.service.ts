@@ -8,7 +8,7 @@ export class AuthService {
   constructor(private users: UsersService, private jwt: JwtService) {}
   async register(dto: RegisterDto) {
     if (await this.users.findByEmail(dto.email)) throw new ConflictException('El correo ya está registrado');
-    const user = await this.users.create({ name:dto.name, email:dto.email.toLowerCase(), phone:dto.phone || '', role:dto.role || 'STUDENT', passwordHash:await bcrypt.hash(dto.password, 12), active:true });
+    const user = await this.users.create({ name:dto.name, email:dto.email.toLowerCase(), phone:dto.phone || '', role:'STUDENT', passwordHash:await bcrypt.hash(dto.password, 12), active:true });
     return this.issue(user);
   }
   async login(dto: LoginDto) {
